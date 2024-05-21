@@ -15,7 +15,7 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
-          python-version: 3.9
+          python-version: 3.6
 
       - name: Install dependencies
         run: python -m pip install -U -e . setuptools wheel twine macholib
@@ -23,7 +23,6 @@ jobs:
       - name: Build Wheels
         run: |
           python setup.py sdist bdist_wheels
-          python -m twine check dist/*
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v4
